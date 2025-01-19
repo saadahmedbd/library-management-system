@@ -18,8 +18,8 @@ public class library {
     @OneToMany(mappedBy = "library", cascade = CascadeType.ALL)
     private List <book_data> bookData=new ArrayList<>();
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<user> users=new ArrayList<>();
+    @OneToMany(mappedBy = "library", cascade = CascadeType.ALL)
+    private List<libraryUser> libraryUsers =new ArrayList<>();
     @OneToMany(mappedBy = "library", cascade = CascadeType.ALL)
     private  List<borrow_book> borrowBooks =new ArrayList<>();
 }

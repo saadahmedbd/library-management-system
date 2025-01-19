@@ -11,17 +11,11 @@ public class book_data {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
     private long id;
-    @Column(
-            nullable = false
-    )
+    @Column(nullable = false)
     private String title;
-    @Column(
-            nullable = false
-    )
+    @Column(nullable = false)
     private String author;
-    @Column(
-            nullable = false
-    )
+    @Column(nullable = false)
     private String genre;
     @Column(
             nullable = false

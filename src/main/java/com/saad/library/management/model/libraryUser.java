@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class user {
+public class libraryUser {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
     private long id;
@@ -18,18 +18,16 @@ public class user {
     private String email;
 
     private double phone;
-    @Column(
-            nullable = false
-    )
+    @Column(nullable = false)
     private String address;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "libraryUser", cascade = CascadeType.ALL)
     private List<borrow_book> borrowBooks=new ArrayList<>();
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private user user;
+    @JoinColumn(name = "library_id")
+    private library library;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "libraryUser", cascade = CascadeType.ALL)
     private List<book_review> bookReviews=new ArrayList<>();
 }

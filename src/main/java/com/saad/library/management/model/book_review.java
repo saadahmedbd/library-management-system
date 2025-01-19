@@ -10,7 +10,7 @@ public class book_review {
     private long id;
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private user user;
+    private libraryUser libraryUser;
     @ManyToOne
     @JoinColumn(name = "book_id")
     private book_data bookData;

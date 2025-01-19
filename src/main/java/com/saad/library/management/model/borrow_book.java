@@ -11,7 +11,7 @@ public class borrow_book {
     private long id;
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private user user;
+    private libraryUser libraryUser;
 
     @ManyToOne
     @JoinColumn(name = "book_id")
