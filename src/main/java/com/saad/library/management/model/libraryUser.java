@@ -1,11 +1,17 @@
 package com.saad.library.management.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class libraryUser {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
