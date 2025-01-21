@@ -22,9 +22,22 @@ public class librarycontoller {
     public List<library> getAllLibrary(){
        return LibraryService.getAllLibrary();
     }
+    @GetMapping("/{id}")
+    public List<library> getLibraryById(@PathVariable long id){
+        return LibraryService.getLibraryById(id);
+    }
     @PostMapping
     public library createLibraryData( @RequestBody library Library){
         return LibraryService.createLibrary(Library);
     }
+    @PutMapping("/{id}")
+    public library updateLibrary(@PathVariable long id, @RequestBody library Library){
+        return LibraryService.updateLibrary(id, Library);
+    }
+    @DeleteMapping("{id}")
+    public void deleteLibrary(@PathVariable long id){
+        LibraryService.deleteLibraray(id);
+    }
+
 
 }
