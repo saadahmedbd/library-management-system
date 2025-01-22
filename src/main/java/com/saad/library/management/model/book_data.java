@@ -17,19 +17,15 @@ public class book_data {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
     private long id;
-    @Column(nullable = false)
+
     private String title;
-    @Column(nullable = false)
+
     private String author;
-    @Column(nullable = false)
+
     private String genre;
-    @Column(
-            nullable = false
-    )
+
     private String language;
-    @Column(
-            nullable = false
-    )
+
     private Date published_year;
 
     @ManyToOne
@@ -42,4 +38,75 @@ public class book_data {
     @OneToMany(mappedBy = "bookData",cascade = CascadeType.ALL)
     private List<book_review> bookReviews=new ArrayList<>();
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    public Date getPublished_year() {
+        return published_year;
+    }
+
+    public void setPublished_year(Date published_year) {
+        this.published_year = published_year;
+    }
+
+    public com.saad.library.management.model.library getLibrary() {
+        return library;
+    }
+
+    public void setLibrary(com.saad.library.management.model.library library) {
+        this.library = library;
+    }
+
+    public List<borrow_book> getBorrowBooks() {
+        return borrowBooks;
+    }
+
+    public void setBorrowBooks(List<borrow_book> borrowBooks) {
+        this.borrowBooks = borrowBooks;
+    }
+
+    public List<book_review> getBookReviews() {
+        return bookReviews;
+    }
+
+    public void setBookReviews(List<book_review> bookReviews) {
+        this.bookReviews = bookReviews;
+    }
 }
