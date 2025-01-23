@@ -16,15 +16,13 @@ public class libraryUser {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
     private long id;
-    @Column(nullable = false)
+
     private String name;
-    @Column(nullable = false,
-        unique = true
-    )
+
     private String email;
 
     private double phone;
-    @Column(nullable = false)
+
     private String address;
 
     @OneToMany(mappedBy = "libraryUser", cascade = CascadeType.ALL)
