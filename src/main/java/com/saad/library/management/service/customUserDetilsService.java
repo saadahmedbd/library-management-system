@@ -22,10 +22,12 @@ import java.util.stream.Collectors;
 public class customUserDetilsService implements UserDetailsService {
     @Autowired
     public securityUserRepo SecurityUserRepo;
+    @Autowired
+    public jwtService jwtService;
 
 
     @Autowired
-    @Lazy
+    @Lazy // two dependency conflict hole
     public  AuthenticationManager authenticationManager;
 
 
@@ -63,7 +65,7 @@ public class customUserDetilsService implements UserDetailsService {
                 new UsernamePasswordAuthenticationToken(securityUser.getUsername(), securityUser.getPassword())
         );
         if (authentication.isAuthenticated()){
-            return "login successful";
+            return jwtService.generateToken(securityUser.getUsername());
         }
         return "login failed";
 
