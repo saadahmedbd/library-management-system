@@ -5,6 +5,7 @@ import com.saad.library.management.service.libraryService;
 
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,10 +25,13 @@ public class librarycontoller {
        return LibraryService.getAllLibrary();
     }
     @GetMapping("/{id}")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')") //no restriction
     public List<library> getLibraryById(@PathVariable long id){
         return LibraryService.getLibraryById(id);
     }
+
     @PostMapping("/add")
+    @PreAuthorize("hasRole('ADMIN')") //restrict for user
     public library createLibraryData( @RequestBody library Library){
         return LibraryService.createLibrary(Library);
     }

@@ -28,6 +28,8 @@ public class securityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(Request -> Request
                         .requestMatchers("/api/auth/register", "/api/auth/login").permitAll()
+                        .requestMatchers("/library/add").hasRole("ADMIN") // restict for user
+                        .requestMatchers("/library").hasAnyRole("ADMIN", "USER") //no restriction
                         .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults())
                 .sessionManagement(Session -> Session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
