@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/library")
 public class librarycontoller {
 
     public final libraryService LibraryService;
@@ -18,7 +19,7 @@ public class librarycontoller {
         LibraryService = libraryService;
     }
 
-    @GetMapping
+    @GetMapping()
     public List<library> getAllLibrary(){
        return LibraryService.getAllLibrary();
     }
@@ -26,15 +27,15 @@ public class librarycontoller {
     public List<library> getLibraryById(@PathVariable long id){
         return LibraryService.getLibraryById(id);
     }
-    @PostMapping
+    @PostMapping("/add")
     public library createLibraryData( @RequestBody library Library){
         return LibraryService.createLibrary(Library);
     }
-    @PutMapping("/{id}")
+    @PutMapping("/update/{id}")
     public library updateLibrary(@PathVariable long id, @RequestBody library Library){
         return LibraryService.updateLibrary(id, Library);
     }
-    @DeleteMapping("{id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteLibrary(@PathVariable long id){
         LibraryService.deleteLibraray(id);
     }
